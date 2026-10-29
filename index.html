@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeDrop - Blood Donation App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">
+    <img src="lifedrop-logo.png" alt="LifeDrop">
+</a>
+    <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
+
+    <nav id="navigation">
+        <a href="#home">Home</a>
+        <a href="#donate">Become a Donor</a>
+        <a href="#search">Find Donors</a>
+        <a href="#emergency">Emergency</a>
+        <a href="#awareness">Awareness</a>
+    </nav>
+</header>
+
+<main>
+    <!-- HOME SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="tagline">GIVE BLOOD, GIVE HOPE</p>
+            <h1>Donate Blood,<br><span>Save Lives.</span></h1>
+            <p>Your one donation can make a difference.
+               Join our community and help people in need.</p>
+
+            <a href="#donate" class="btn">Become a Donor</a>
+            <a href="#search" class="btn btn-outline">Find Donors</a>
+        </div>
+
+        <img src="donate-blood.png"
+             alt="Donate blood and save lives"
+             class="hero-image">
+    </section>
+
+    <!-- DONATION CARDS -->
+    <section class="section">
+        <div class="section-heading">
+            <p class="tagline">EVERY DROP MATTERS</p>
+            <h2>Be Someone's <span>Hero</span></h2>
+            <p>Small acts of kindness can save lives.</p>
+        </div>
+
+        <div class="cards">
+            <article class="card">
+                <img src="blood-donor.png" alt="Blood donor">
+                <h3>Become a Donor</h3>
+                <p>Register your details and offer to help patients.</p>
+                <a href="#donate">Register Now →</a>
+            </article>
+
+            <article class="card">
+                <img src="blood-bag.png" alt="Blood donation bag">
+                <h3>Find Blood Donors</h3>
+                <p>Search registered demo donors by blood group and city.</p>
+                <a href="#search">Search Donors →</a>
+            </article>
+
+            <article class="card">
+                <img src="every-drop-counts.png" alt="Every drop counts">
+                <h3>Spread Awareness</h3>
+                <p>Encourage your community to learn about blood donation.</p>
+                <a href="#awareness">Learn More →</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- DONOR REGISTRATION -->
+    <section id="donate" class="section tinted">
+        <div class="section-heading">
+            <p class="tagline">MAKE A DIFFERENCE</p>
+            <h2>Donor <span>Registration</span></h2>
+            <p>Enter your details to register as a willing donor.</p>
+        </div>
+
+        <form id="donorForm" class="form-card">
+            <label for="donorName">Full Name *</label>
+            <input id="donorName" type="text" maxlength="70"
+                   placeholder="Enter your name" required>
+
+            <div class="form-row">
+                <div>
+                    <label for="donorAge">Age *</label>
+                    <input id="donorAge" type="number" min="18" max="100"
+                           placeholder="Age" required>
+                </div>
+
+                <div>
+                    <label for="bloodGroup">Blood Group *</label>
+                    <select id="bloodGroup" required>
+                        <option value="">Select blood group</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                        <option>O+</option>
+                        <option>O-</option>
+                    </select>
+                </div>
+            </div>
+
+            <label for="donorPhone">Phone Number *</label>
+            <input id="donorPhone" type="tel"
+                   pattern="[0-9+() -]{7,20}"
+                   placeholder="Enter phone number" required>
+            <label for="donorEmail">Email address *</label>
+            <input id="donorEmail" type="email"
+                   placeholder="Enter your email address" required>
+
+            <label for="donorCity">City / Area *</label>
+            <input id="donorCity" type="text" maxlength="100"
+                   placeholder="Enter your city" required>
+
+            <label class="consent">
+                <input id="donorConsent" type="checkbox" required>
+                I agree to be contacted about blood donation.
+            </label>
+
+            <button class="btn" type="submit">Register as Donor</button>
+            <p id="donorMessage" class="message" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <!-- SEARCH DONORS -->
+    <section id="search" class="section">
+        <div class="section-heading">
+            <p class="tagline">FIND SUPPORT</p>
+            <h2>Find Blood <span>Donors</span></h2>
+            <p>Search demo registrations saved in this browser.</p>
+        </div>
+
+        <div class="search-box">
+            <div>
+                <label for="searchGroup">Blood Group</label>
+                <select id="searchGroup">
+                    <option value="">All groups</option>
+                    <option>A+</option><option>A-</option>
+                    <option>B+</option><option>B-</option>
+                    <option>AB+</option><option>AB-</option>
+                    <option>O+</option><option>O-</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="searchCity">City / Area</label>
+                <input id="searchCity" type="search"
+                       placeholder="Enter city or area">
+            </div>
+
+            <button id="searchBtn" class="btn" type="button">
+                Search
+            </button>
+        </div>
+
+        <p id="resultCount" class="result-count"></p>
+        <div id="donorResults" class="results"></div>
+
+        <p class="notice">
+            In an emergency, contact an authorized hospital or blood bank.
+            Confirm donor availability and medical suitability with professionals.
+        </p>
+    </section>
+
+    <!-- EMERGENCY REQUEST -->
+    <section id="emergency" class="section tinted">
+        <div class="section-heading">
+            <p class="tagline">URGENT NEED</p>
+            <h2>Emergency Blood <span>Request</span></h2>
+            <p>Prepare a message containing the details needed for a request.</p>
+        </div>
+
+        <form id="requestForm" class="form-card">
+            <label for="patientName">Patient / Contact Name *</label>
+            <input id="patientName" required placeholder="Enter name">
+
+            <label for="requestGroup">Blood Group Needed *</label>
+            <select id="requestGroup" required>
+                <option value="">Select blood group</option>
+                <option>A+</option><option>A-</option>
+                <option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option>
+                <option>O+</option><option>O-</option>
+            </select>
+
+            <label for="units">Units Needed *</label>
+            <input id="units" type="number" min="1" max="20"
+                   value="1" required>
+
+            <label for="hospital">Hospital Name *</label>
+            <input id="hospital" required placeholder="Enter hospital name">
+
+            <label for="requestCity">City / Area *</label>
+            <input id="requestCity" required placeholder="Enter city">
+
+            <label for="requestPhone">Contact Phone *</label>
+            <input id="requestPhone" type="tel"
+                   pattern="[0-9+() -]{7,20}"
+                   placeholder="Enter contact number" required>
+
+            <label for="requestNotes">Additional Details</label>
+            <textarea id="requestNotes" rows="3"
+                      placeholder="Optional information"></textarea>
+
+            <button type="submit" class="btn">Prepare Request</button>
+            <p id="requestMessage" class="message" aria-live="polite"></p>
+            <textarea id="requestOutput" rows="8" readonly
+                      hidden aria-label="Prepared request message"></textarea>
+            <button id="copyRequest" class="btn" type="button" hidden>
+                Copy Request
+            </button>
+        </form>
+    </section>
+
+    <!-- AWARENESS -->
+    <section id="awareness" class="section">
+        <div class="section-heading">
+            <p class="tagline">SPREAD THE WORD</p>
+            <h2>Every Drop <span>Counts</span></h2>
+            <p>Share awareness and encourage safe, informed blood donation.</p>
+        </div>
+
+        <div class="awareness-grid">
+            <article class="card">
+                <img src="donor-banner.png" alt="Be a blood donor banner">
+                <h3>Be a Blood Donor</h3>
+                <p>Ask a qualified blood donation center about eligibility.</p>
+            </article>
+
+            <article class="card">
+                <img src="every-drop-counts.png" alt="Every drop counts">
+                <h3>Every Drop Counts</h3>
+                <p>Share trusted information with your friends and family.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="closing">
+        <h2>Be a Hero. Help Save Lives.</h2>
+        <p>Your kindness can make a difference.</p>
+        <a href="#donate" class="btn btn-light">Register Today</a>
+    </section>
+</main>
+
+<footer>
+   <div class="footer-logo">
+    <img src="lifedrop-logo.png" alt="LifeDrop - Blood Donation App">
+</div>
+    <p>Blood Donation App</p>
+    <p class="footer-note">
+        Demo project only. Donor data is stored in this browser and is
+        not shared with other users. Not a medical service.
+    </p>
+    <button id="clearData" class="clear-btn" type="button">
+        Clear Demo Donor Data
+    </button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
